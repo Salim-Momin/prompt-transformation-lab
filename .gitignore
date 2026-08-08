@@ -1,0 +1,47 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environment
+.venv/
+venv/
+
+# Generated results
+outputs/*.json
+!outputs/.gitkeep
+
+# IDE and operating system
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db 
+
+# Backend environment
+backend/.env
+backend/.venv/
+backend/__pycache__/
+backend/outputs/*.json
+!backend/outputs/.gitkeep
+
+# Frontend environment
+frontend/.env.local
+frontend/.env.*.local
+
+# Next.js
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+
+# Logs
+*.log
+
+# Operating system
+.DS_Store
+Thumbs.db

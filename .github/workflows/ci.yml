@@ -43,7 +43,6 @@ jobs:
         env:
           BACKEND_API_URL: https://example.invalid
 
-
   backend:
     name: Backend Tests
     runs-on: ubuntu-latest

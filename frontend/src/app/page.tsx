@@ -483,6 +483,24 @@ export default function HomePage() {
     setAuthOpen(false)
   }
 />
+
+<footer className="relative border-t border-white/[0.06] py-8">
+  <div className="pointer-events-none absolute inset-x-0 top-0 mx-auto h-px w-40 bg-gradient-to-r from-transparent via-violet-400/40 to-transparent" />
+
+  <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-4 px-4 text-xs text-zinc-600 sm:flex-row sm:px-6">
+    <p>
+      © {new Date().getFullYear()} PromptForge AI
+    </p>
+
+    <p className="flex items-center gap-1">
+      Designed & built by
+      <span className="font-medium text-zinc-300">
+        Salim Momin
+      </span>
+    </p>
+  </div>
+</footer>
+
     </main>
   );
 }

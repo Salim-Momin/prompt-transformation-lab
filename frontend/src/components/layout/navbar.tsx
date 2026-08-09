@@ -63,26 +63,30 @@ export function Navbar({
         <div className="hidden items-center gap-1 md:flex">
           <a
             href="#features"
-            className="rounded-lg px-3 py-2 text-sm text-zinc-400 transition hover:bg-white/[0.04] hover:text-white"
+            className="text-sm text-zinc-400 transition-colors hover:text-white"
           >
+            <Button variant="ghost">
             Features
+            </Button>
           </a>
 
-          <a
-            href="#how-it-works"
-            className="rounded-lg px-3 py-2 text-sm text-zinc-400 transition hover:bg-white/[0.04] hover:text-white"
+          <Link
+            href="/how-it-works"
+            className="text-sm text-zinc-400 transition-colors hover:text-white"
           >
-            How it works
-          </a>
+            <Button variant="ghost">
+              How it works
+            </Button>
+          </Link>
 
-          <a
-            href="http://127.0.0.1:8000/docs"
-            target="_blank"
-            rel="noreferrer"
-            className="rounded-lg px-3 py-2 text-sm text-zinc-400 transition hover:bg-white/[0.04] hover:text-white"
-          >
-            API Docs
-          </a>
+          <Link
+              href="/docs"
+              className="text-sm text-zinc-400 transition hover:text-white"
+            >
+          <Button variant="ghost">
+          API Docs
+          </Button>
+        </Link>
         </div>
 
         <div className="flex items-center gap-2">
@@ -125,15 +129,6 @@ export function Navbar({
         <LogOut className="size-4" />
       </Button>
 
-      <Button
-        variant="ghost"
-        size="icon"
-        className="sm:hidden"
-        onClick={onOpenHistory}
-        aria-label="Open prompt history"
-      >
-        <History className="size-5" />
-      </Button>
     </>
   ) : (
     <Button
@@ -157,6 +152,8 @@ export function Navbar({
 </div>
 
         <div className="flex items-center gap-2">
+          <a
+          href="https://github.com/Salim-Momin/prompt-transformation-lab">
           <Button
             variant="ghost"
             size="icon"
@@ -165,6 +162,7 @@ export function Navbar({
           >
             <GitHubIcon />
           </Button>
+          </a>
 
           <Button
             size="sm"
@@ -172,16 +170,6 @@ export function Navbar({
           >
             <Sparkles className="size-4" />
             Start creating
-          </Button>
-
-          <Button
-            variant="ghost"
-            size="icon"
-            className="sm:hidden"
-            onClick={onOpenHistory}
-            aria-label="Open prompt history"
-          >
-            <History className="size-5" />
           </Button>
         </div>
       </nav>

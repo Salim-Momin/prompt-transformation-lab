@@ -19,8 +19,6 @@ import type {
   PromptHistorySummary,
 } from "@/types/history";
 
-import { useAuth } from "@/providers/auth-provider";
-
 interface UsePromptHistoryOptions {
   enabled?: boolean;
 }
@@ -44,17 +42,6 @@ export function usePromptHistory({
 
   const [error, setError] =
     useState<string | null>(null);
-
-  const { user } = useAuth();
-
-  useEffect(() => {
-  setItems([]);
-  setTotal(0);
-  setSearch("");
-  setCategory("all");
-  setFavoritesOnly(false);
-  setError(null);
-}, [user?.id]);
 
   const loadHistory = useCallback(async () => {
     if (!enabled) {

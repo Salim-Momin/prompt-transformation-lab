@@ -9,6 +9,14 @@ from src.core.prompts import (
 )
 from src.schemas import PromptTransformation
 
+import logging
+import time
+
+
+logger = logging.getLogger(
+    "promptforge.gemini"
+)
+
 
 class GeminiServiceError(RuntimeError):
     """Base exception raised by the Gemini service."""
@@ -66,6 +74,7 @@ class GeminiService:
         )
 
         try:
+            started_at = time.perf_counter()
             response = self.client.models.generate_content(
                 model=self.settings.gemini_model,
                 contents=request_content,
@@ -77,6 +86,13 @@ class GeminiService:
                     response_mime_type="application/json",
                     response_schema=PromptTransformation,
                 ),
+            )
+            duration_ms = (
+                time.perf_counter() - started_at
+            ) * 1000
+
+            logger.info(
+                "gemini_generation_completed | duration_ms=%.2f",                    duration_ms,
             )
         except Exception as error:
             raise GeminiServiceError(

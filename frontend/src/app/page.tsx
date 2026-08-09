@@ -16,7 +16,7 @@ import { HistoryDrawer } from "@/components/history/history-drawer";
 import type { PromptHistoryRecord } from "@/types/history";
 import { ThinkingTimeline } from "@/components/ai/thinking-timeline";
 import { motion } from "motion/react";
-
+import { useEffect } from "react";
 import { Navbar } from "@/components/layout/navbar";
 import { PageBackground } from "@/components/layout/page-background";
 import { PromptForm } from "@/components/prompt-form";
@@ -71,6 +71,13 @@ export default function HomePage() {
 
   const [authOpen, setAuthOpen] =
     useState(false);
+
+
+  useEffect(() => {
+    void fetch("/api/health", {
+      cache: "no-store",
+    });
+  }, []);  
 
   function handleOpenHistoryRecord(
     record: PromptHistoryRecord,
